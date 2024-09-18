@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crear cliente</title>
+</head>
+<body>
+
+<form th:action="@{/crear-cliente}" method="get">
+
+    <label for="nombre">Nombre</label>
+    <input type="text" name="nombre" id="nombre">
+
+    <label for="apellido">Apellido</label>
+    <input type="text" name="apellido" id="apellido">
+
+    <label for="dni">DNI</label>
+    <input type="number" name="dni" id="dni">
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+
+    <label for="contrasenia">Contraseña</label>
+    <input type="text" name="contrasenia" id="contrasenia">
+
+    <label for="provincia">Provincia</label>
+    <select name="provincia" id="provincia">
+
+        <option value="">Seleccione</option>
+        <option value="buenos aires">Buenos Aires</option>
+        <option value="cordoba">Cordoba</option>
+
+    </select>
+
+    <label for="localidad">Localidad</label>
+    <select name="localidad" id="localidad">
+
+        <option value="">Seleccione</option>
+        <option value="San justo">San justo</option>
+        <option value="Villa Luzuriaga">Villa Luzuriaga</option>
+
+    </select>
+
+    <label for="domicilio">Domicilio</label>
+    <input type="text" name="domicilio" id="domicilio">
+
+    <label for="codigoPostal">Codigo Postal</label>
+    <input type="text" name="codigoPostal" id="codigoPostal">
+
+    <label for="telefono">Telefono</label>
+    <input type="text" name="telefono" id="telefono">
+
+    <label for="telefonoMovil">Telefono Movil</label>
+    <input type="text" name="telefonoMovil" id="telefonoMovil">
+
+    <label for="codigoCliente">Codigo Cliente</label>
+    <input type="text" name="codigoCliente" id="codigoCliente">
+
+
+
+    <button type="submit">Crear</button>
+</form>
+
+<h1 th:if="${error} != null" th:text="${error}"> </h1>
+
+<h1 th:if="${clienteCreado} != null" th:text="${clienteCreado}"> </h1>
+
+</body>
+</html>
