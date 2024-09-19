@@ -8,6 +8,8 @@ import javax.persistence.Id;
 @Entity
 public class Usuario {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Long dni;
     private String email;
     private String password;
@@ -18,6 +20,13 @@ public class Usuario {
     private Boolean activo = false;
 
 
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getEmail() {
         return email;
     }
