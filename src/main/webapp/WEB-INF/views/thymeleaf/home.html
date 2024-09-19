@@ -1,35 +1,60 @@
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
 
-  <title>Taller Web I</title>
-
-  <!-- Boostrap core css -->
+    <!-- Boostrap core css -->
   <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
 
   <!-- custom style -->
-  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+  <link rel="stylesheet" th:href="@{/css/vistaAdmin.css}"/>
 
 </head>
-
 <body>
+    <nav>
+        <ul>
+            <li><a href="#">Configuración</a></li>
+            <li class="dropdown">
+                <a href="#">Viajes</a>
+                <ul class="submenu">
+                    <li><a href="#">Planificación de viaje</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Operaciones</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#">APP</a></li>
+        </ul>
+    </nav>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">UNLAM</a>
-</nav>
 
-<main role="main" class="container">
-  <div class = "container">
-    <h1>Bienvenidos a Taller Web 1</h1>
-
-    <a href="login.html" class="btn btn-lg btn-primary btn-block">Volver</a>
-  </div>
-</main>
-<!-- /.container -->
-
-<!-- Boostrap core js -->
-<script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+    <div class="container">
+        <div class="card green">
+            <h2>Nuevas Reservas</h2>
+            <p>0</p>
+        </div>
+        <div class="card blue">
+            <h2>Reservas Utilizadas</h2>
+            <p>0</p>
+        </div>
+        <div class="card pink">
+            <h2>Reservas Canceladas</h2>
+            <p>0</p>
+        </div>
+        <div class="card light-blue">
+            <h2>Clientes Registrados</h2>
+            <p>0</p>
+        </div>
+        <div class="card red">
+            <h2>Clientes Bloqueados</h2>
+            <p>0</p>
+        </div>
+        <div class="card grey">
+            <h2>Créditos Activos</h2>
+            <p>0</p>
+        </div>
+    </div>
 </body>
 </html>

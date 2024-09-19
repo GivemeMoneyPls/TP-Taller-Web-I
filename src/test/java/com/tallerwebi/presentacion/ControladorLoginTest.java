@@ -48,7 +48,8 @@ public class ControladorLoginTest {
 		assertThat(modelAndView.getModel().get("error").toString(), equalToIgnoringCase("Usuario o clave incorrecta"));
 		verify(sessionMock, times(0)).setAttribute("ROL", "ADMIN");
 	}
-	
+
+
 	@Test
 	public void loginConUsuarioYPasswordCorrectosDeberiaLLevarAHome(){
 		// preparacion
