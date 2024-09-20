@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Chofer</title>
+
+    <!-- Bootstrap core css -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" th:href="@{/css/registroChofer.css}"/>
+    <link rel="stylesheet" th:href="@{/css/vistaAdmin.css}"/>
+
+
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#">Configuración</a>
+                <ul class="submenu">
+                    <li><a href="#">Vehículos</a></li>
+                    <li><a href="#">Chofer</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Viajes</a>
+                <ul class="submenu">
+                    <li><a href="#">Planificación de viaje</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Operaciones</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#">APP</a></li>
+        </ul>
+    </nav>
+
+    <!-- Formulario de registro de chofer -->
+    <h1>Registro de Chofer</h1>
+    <form action="#" th:action="@{/validar-registro_chofer}" method="POST" th:object="${Chofer}">
+        <div>
+            <label for="dni">DNI:</label>
+            <input th:field="*{dni}" type="number" id="dni" name="dni" required>
+        </div>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input th:field="*{nombre}" type="text" id="nombre" name="nombre" required>
+        </div>
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input th:field="*{apellido}" type="text" id="apellido" name="apellido" required>
+        </div>
+        <div>
+            <button type="submit">Registrar Chofer</button>
+             <p th:if="${error != null}" class="alert alert-danger" th:text="'Error: ' + ${error}"></p>
+        </div>
+    </form>
+</body>
+
+</html>

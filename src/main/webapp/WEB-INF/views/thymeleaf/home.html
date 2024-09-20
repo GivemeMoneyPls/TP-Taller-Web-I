@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -6,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
 
-    <!-- Boostrap core css -->
-  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
 
-  <!-- custom style -->
-  <link rel="stylesheet" th:href="@{/css/vistaAdmin.css}"/>
+    <!-- Custom style -->
+    <link rel="stylesheet" th:href="@{/css/vistaAdmin.css}"/>
 
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="#">Configuración</a></li>
+            <li class="dropdown">
+                <a href="#">Configuración</a>
+                <ul class="submenu">
+                    <li><a href="#">Vehículos</a></li>
+                    <li><a th:href="@{/registroChofer}">Chofer</a></li>
+                </ul>
+            </li>
             <li class="dropdown">
                 <a href="#">Viajes</a>
                 <ul class="submenu">
@@ -28,7 +33,6 @@
             <li><a href="#">APP</a></li>
         </ul>
     </nav>
-
 
     <div class="container">
         <div class="card green">
