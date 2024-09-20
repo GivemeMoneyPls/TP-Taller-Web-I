@@ -9,6 +9,7 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
 
     <!-- Custom style -->
+    <link rel="stylesheet" th:href="@{/css/nav.css}"/>
     <link rel="stylesheet" th:href="@{/css/vistaAdmin.css}"/>
 
 </head>
@@ -26,6 +27,7 @@
                 <a href="#">Viajes</a>
                 <ul class="submenu">
                     <li><a href="#">Planificación de viaje</a></li>
+                    <li><a th:href="@{/gestion-recorrido}">Recorrido</a></li>
                 </ul>
             </li>
             <li><a href="#">Operaciones</a></li>

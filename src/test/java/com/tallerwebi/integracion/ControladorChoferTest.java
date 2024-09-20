@@ -1,14 +1,8 @@
 package com.tallerwebi.integracion;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import com.tallerwebi.dominio.Chofer;
 import com.tallerwebi.dominio.ServicioChofer;
-import com.tallerwebi.dominio.excepcion.ChoferExistente;
 import com.tallerwebi.integracion.config.HibernateTestConfig;
 import com.tallerwebi.integracion.config.SpringWebTestConfig;
 import com.tallerwebi.presentacion.ControladorChofer;
