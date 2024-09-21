@@ -2,6 +2,7 @@ package com.tallerwebi.dominio;
 
 import com.tallerwebi.dominio.excepcion.ClienteExistente;
 import com.tallerwebi.dominio.excepcion.PasswordLongitudIncorrecta;
+import com.tallerwebi.infraestructura.ServicioClienteImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

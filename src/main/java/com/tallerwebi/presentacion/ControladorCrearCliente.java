@@ -4,6 +4,7 @@ import com.tallerwebi.dominio.Cliente;
 import com.tallerwebi.dominio.ServicioCrearCliente;
 import com.tallerwebi.dominio.excepcion.ClienteExistente;
 import com.tallerwebi.dominio.excepcion.PasswordLongitudIncorrecta;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,7 @@ public class ControladorCrearCliente {
 
     ServicioCrearCliente servicioCrearCliente;
 
+    @Autowired
     public ControladorCrearCliente(ServicioCrearCliente servicioCrearCliente){
         this.servicioCrearCliente = servicioCrearCliente;
     }
@@ -31,6 +33,7 @@ public class ControladorCrearCliente {
     @RequestMapping(path = "/crear-cliente", method = RequestMethod.POST)
     public ModelAndView crearCLiente(@ModelAttribute("Cliente") Cliente cliente) {
 
+        Cliente clienteCreado;
         ModelMap modelo;
 
         modelo = verificacionDeCamposVacios(cliente);
@@ -41,7 +44,7 @@ public class ControladorCrearCliente {
         }
 
         try {
-            servicioCrearCliente.crearCliente(cliente);
+            clienteCreado = servicioCrearCliente.crearCliente(cliente);
         } catch (ClienteExistente | PasswordLongitudIncorrecta e) {
             String mensajeError = e.getMessage();
             modelo.put("error", mensajeError);
@@ -50,6 +53,7 @@ public class ControladorCrearCliente {
 
 
         modelo.put("creacionExitosa", "Se ha creado el cliente exitosamente");
+        modelo.put("clienteCreado", clienteCreado);
         return new ModelAndView("gestionar-clientes", modelo);
     }
 

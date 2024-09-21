@@ -1,13 +1,16 @@
-package com.tallerwebi.dominio;
+package com.tallerwebi.infraestructura;
 
 
+import com.tallerwebi.dominio.Cliente;
+import com.tallerwebi.dominio.RepositorioCliente;
+import com.tallerwebi.dominio.ServicioCrearCliente;
 import com.tallerwebi.dominio.excepcion.ClienteExistente;
 import com.tallerwebi.dominio.excepcion.PasswordLongitudIncorrecta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service
+@Service("servicioCrearCliente")
 @Transactional
 public class ServicioClienteImpl implements ServicioCrearCliente {
 
