@@ -20,3 +20,11 @@ INSERT INTO Recorrido (descripcion, destino, duracion, ramal, salida, tipoRecorr
 ('Descripción del recorrido 5', 'Destino 5', '2 horas', 'Ramal 5', 'Salida 5', 'Charter', 'Ida', 'Recorrido 5', 'PUBLICO'),
 ('Descripción del recorrido 6', 'Destino 6', '50 minutos', 'Ramal 6', 'Salida 6', 'Regular', 'Ida y vuelta', 'Recorrido 6', 'PRIVADO'),
 ('Descripción del recorrido 7', 'Destino 7', '1 hora 30 minutos', 'Ramal 7', 'Salida 7', 'Charter', 'Ida', 'Recorrido 7', 'PUBLICO');
+
+INSERT INTO Chofer (apellido, dni, nombre) VALUES ('González', 12345678, 'Carlos');
+INSERT INTO Chofer (apellido, dni, nombre) VALUES ('Pérez', 87654321, 'Juan');
+INSERT INTO Chofer (apellido, dni, nombre) VALUES ('López', 11223344, 'María');
+INSERT INTO Chofer (apellido, dni, nombre) VALUES ('Rodríguez', 99887766, 'Ana');
+INSERT INTO Chofer (apellido, dni, nombre) VALUES ('Martínez', 55667788, 'Luis');
+INSERT INTO Chofer (apellido, dni, nombre) VALUES ('Fernández', 44556677, 'Laura');
+INSERT INTO Chofer (apellido, dni, nombre) VALUES ('García', 33445566, 'Jorge');

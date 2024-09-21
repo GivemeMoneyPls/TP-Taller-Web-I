@@ -29,10 +29,12 @@ public class ControladorRecorrido {
 
 
 
-    @GetMapping("/registroRecorrido")
-    public String mostrarFormularioRegistro(Model model) {
-        model.addAttribute("Recorrido", new Recorrido());
-        return "registroRecorrido";
+     @GetMapping("/formulario-Recorrido")
+    public ModelAndView mostrarFormularioRegistro() {
+         ModelMap modelo = new ModelMap();
+         modelo.put("Recorrido", new Recorrido());
+         return new ModelAndView("formularioRecorrido",modelo);
+
     }
 
     @RequestMapping(path = "/validar-recorrido", method = RequestMethod.POST)

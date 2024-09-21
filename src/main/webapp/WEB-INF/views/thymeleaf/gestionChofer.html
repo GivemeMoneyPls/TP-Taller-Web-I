@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Recorrido</title>
+    <title>Gestión de Choferes</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/nav.css}"/>
@@ -11,7 +11,7 @@
 
 </head>
 <body>
-   <nav>
+  <nav>
         <ul>
             <li><a th:href="@{/ver-home}">Home</a></li>
             <li class="dropdown">
@@ -34,10 +34,10 @@
         </ul>
     </nav>
     <div class="container">
-        <h1>Gestión de Recorridos</h1>
+        <h1>Gestión de Choferes</h1>
 
         <div class="header">
-          <a class="btn btn-primary" th:href="@{/formulario-Recorrido}">Agregar Recorrido</a>
+          <a class="btn btn-primary" th:href="@{/registro-Chofer}">Agregar Chofer</a>
         </div>
 
         <div class="filters">
@@ -57,34 +57,23 @@
         <table>
             <thead>
                 <tr>
-                    <th>Título</th>
-                    <th>Salida</th>
-                    <th>Destino</th>
-                    <th>Tipo de Viaje</th>
-                    <th>Duración</th>
-                    <th>Tipo de Recorrido</th>
-                    <th>Ramal</th>
-                    <th>Visibilidad</th>
-                    <th>Descripción</th>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Dni</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="recorrido : ${recorridos}">
-                    <td th:text="${recorrido.titulo}">Título</td>
-                    <td th:text="${recorrido.salida}">Salida</td>
-                    <td th:text="${recorrido.destino}">Destino</td>
-                    <td th:text="${recorrido.tipoViaje}">Tipo de Viaje</td>
-                    <td th:text="${recorrido.duracion}">Duración</td>
-                    <td th:text="${recorrido.tipoRecorrido}">Tipo de Recorrido</td>
-                    <td th:text="${recorrido.ramal}">Ramal</td>
-                    <td th:text="${recorrido.visibilidad}">Visibilidad</td>
-                    <td th:text="${recorrido.descripcion}">Descripción</td>
+                   <tr th:each="choferes : ${choferes}">
+                    <td th:text="${choferes.id}">Id</td>
+                    <td th:text="${choferes.nombre}">Nombre</td>
+                    <td th:text="${choferes.apellido}">Apellido</td>
+                    <td th:text="${choferes.dni}">Dni</td>
                     <td>
                         <button class="edit-btn">Editar</button>
                         <button class="delete-btn">Eliminar</button>
                     </td>
-                </tr>
             </tbody>
         </table>
     </div>

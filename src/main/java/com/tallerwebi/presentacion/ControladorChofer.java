@@ -20,7 +20,7 @@ public class ControladorChofer {
         this.servicioChofer = servicioChofer;
     }
 
-    @RequestMapping("/registroChofer")
+    @RequestMapping("/registro-Chofer")
     public ModelAndView mostrarFormularioRegistro() {
         ModelMap modelo = new ModelMap();
         modelo.put("Chofer", new Chofer());
@@ -43,6 +43,6 @@ public ModelAndView validarChofer(@ModelAttribute("Chofer") Chofer chofer) {
         return new ModelAndView("registroChofer", model);
     }
 
-    return new ModelAndView("home"); // Asegúrate de redirigir
+    return new ModelAndView("/gestion-choferes"); // Asegúrate de redirigir
 }
 }

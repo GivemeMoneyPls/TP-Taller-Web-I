@@ -46,10 +46,10 @@ public class ControladorRecorridoTest {
 
     @Test
     public void queSePuedaMostrarFormulario() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/registrar-recorrido"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("registroRecorrido"))
-                .andExpect(model().attributeExists("recorrido"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/formulario-Recorrido"))
+           .andExpect(status().isOk())
+           .andExpect(view().name("formularioRecorrido"))  // Asegúrate de usar el nuevo nombre
+           .andExpect(model().attributeExists("Recorrido"));
     }
 
      @Test
