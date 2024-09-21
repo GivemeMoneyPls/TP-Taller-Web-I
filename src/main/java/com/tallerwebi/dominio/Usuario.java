@@ -7,14 +7,19 @@ import javax.persistence.Id;
 
 @Entity
 public class Usuario {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Long dni;
     private String email;
     private String password;
+    private Long creditos;
+    private String nombre;
+    private String apellido;
     private String rol;
     private Boolean activo = false;
+
+
 
     public Long getId() {
         return id;
@@ -34,7 +39,39 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getRol() {
+    public void setDni(Long dni) {
+        this.dni = dni;
+    }
+
+    public Long getDni() {
+        return dni;
+    }
+
+    public Long getCreditos() {
+        return creditos;
+    }
+
+    public void setCreditos(Long creditos) {
+        this.creditos = creditos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+     public String getRol() {
         return rol;
     }
     public void setRol(String rol) {
@@ -50,7 +87,6 @@ public class Usuario {
     public boolean activo() {
         return activo;
     }
-
     public void activar() {
         activo = true;
     }
