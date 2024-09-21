@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Recorridos</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/nav.css}"/>
+    <link rel="stylesheet" th:href="@{/css/gestion-recorrido.css}"/>
+
+</head>
+<body>
+  <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#">Configuración</a>
+                <ul class="submenu">
+                    <li><a href="#">Vehículos</a></li>
+                    <li><a th:href="@{/registroChofer}">Chofer</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Viajes</a>
+                <ul class="submenu">
+                    <li><a href="#">Planificación de viaje</a></li>
+                    <li><a th:href="@{/gestion-recorrido}">Recorrido</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Operaciones</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#">APP</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Gestión de Recorridos</h1>
+
+        <div class="header">
+            <a class="btn btn-primary" th:href="@{/registroRecorrido}">Agregar Recorrido</a>
+        </div>
+
+        <div class="filters">
+            <label for="recorrido">Recorrido:</label>
+            <select id="recorrido">
+                <option value="todos">Todos</option>
+            </select>
+
+            <label for="estado">Estado:</label>
+            <select id="estado">
+                <option value="todos">Todos</option>
+            </select>
+
+            <button class="filter-btn">Filtrar</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Salida</th>
+                    <th>Destino</th>
+                    <th>Tipo de Viaje</th>
+                    <th>Duración</th>
+                    <th>Tipo de Recorrido</th>
+                    <th>Ramal</th>
+                    <th>Visibilidad</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="recorrido : ${recorridos}">
+                    <td th:text="${recorrido.titulo}">Título</td>
+                    <td th:text="${recorrido.salida}">Salida</td>
+                    <td th:text="${recorrido.destino}">Destino</td>
+                    <td th:text="${recorrido.tipoViaje}">Tipo de Viaje</td>
+                    <td th:text="${recorrido.duracion}">Duración</td>
+                    <td th:text="${recorrido.tipoRecorrido}">Tipo de Recorrido</td>
+                    <td th:text="${recorrido.ramal}">Ramal</td>
+                    <td th:text="${recorrido.visibilidad}">Visibilidad</td>
+                    <td th:text="${recorrido.descripcion}">Descripción</td>
+                    <td>
+                        <button class="edit-btn">Editar</button>
+                        <button class="delete-btn">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -15,6 +15,7 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 
     @Autowired
     public RepositorioUsuarioImpl(SessionFactory sessionFactory){
+
         this.sessionFactory = sessionFactory;
     }
 

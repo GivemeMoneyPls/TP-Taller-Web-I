@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Recorrido</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/nav.css}"/>
+    <link rel="stylesheet" th:href="@{/css/registroRecorrido.css}"/>
+</head>
+<body>
+
+ <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#">Configuración</a>
+                <ul class="submenu">
+                    <li><a href="#">Vehículos</a></li>
+                    <li><a th:href="@{/registroChofer}">Chofer</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Viajes</a>
+                <ul class="submenu">
+                    <li><a href="#">Planificación de viaje</a></li>
+                    <li><a th:href="@{/gestion-recorrido}">Recorrido</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Operaciones</a></li>
+            <li><a href="#">Reportes</a></li>
+            <li><a href="#">APP</a></li>
+        </ul>
+    </nav>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Registrar Recorrido</h2>
+    <form th:action="@{/validar-recorrido}" method="POST" th:object="${Recorrido}" class="row g-4 justify-content-center">
+
+        <!-- Primera columna -->
+        <div class="col-md-5">
+            <div class="form-group mb-3">
+                <label for="titulo">*Título</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ej: Monte Grande - Capital Federal" required th:field="*{titulo}">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="salida">*Localidad o lugar de salida</label>
+                <input type="text" class="form-control" id="salida" name="salida" placeholder="Ej: Monte Grande, Buenos Aires" required th:field="*{salida}">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="destino">*Localidad o lugar de destino</label>
+                <input type="text" class="form-control" id="destino" name="destino" placeholder="Ej: Buenos Aires, CABA" required th:field="*{destino}">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="tipo_viaje">Tipo de viaje</label>
+                <select class="form-control" id="tipo_viaje" name="tipo_viaje" required th:field="*{tipoViaje}">
+                    <option value="Ida">Ida</option>
+                    <option value="Ida y vuelta">Ida y vuelta</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="duracion">Duración aprox. del viaje</label>
+                <input type="text" class="form-control" id="duracion" name="duracion" placeholder="10 Minutos" required th:field="*{duracion}">
+            </div>
+        </div>
+
+        <!-- Segunda columna -->
+        <div class="col-md-5">
+            <div class="form-group mb-3">
+                <label for="tipo_recorrido">Tipo de recorrido</label>
+                <select class="form-control" id="tipo_recorrido" name="tipo_recorrido" required th:field="*{tipoRecorrido}">
+                    <option value="Charter">Charter</option>
+                    <option value="Regular">Regular</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="ramal">Ramal</label>
+                <input type="text" class="form-control" id="ramal" name="ramal" placeholder="Ej: Autopista Ricchieri" th:field="*{ramal}">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="visibilidad">Visibilidad</label>
+                <select class="form-control" id="visibilidad" name="visibilidad" required th:field="*{visibilidad}">
+                    <option value="PUBLICO">Público</option>
+                    <option value="PRIVADO">Privado</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="descripcion">*Descripción del recorrido</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Ej: Saliendo desde la Estación de Monte Grande" required th:field="*{descripcion}"></textarea>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="paradas">Paradas del recorrido (separadas por comas)</label>
+                <input type="text" class="form-control" id="paradas" name="paradas" placeholder="Ej: Parada 1, Parada 2, Parada 3" th:field="*{paradaInput}">
+            </div>
+        </div>
+
+        <!-- Botón de guardar -->
+        <div class="col-12 text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
