@@ -30,7 +30,6 @@ public class ControladorRecorridoTest {
     @Autowired
     private WebApplicationContext wac;
 
-
     private MockMvc mockMvc;
 
     private ServicioRecorrido servicioRecorrido;
@@ -39,33 +38,27 @@ public class ControladorRecorridoTest {
 
     @BeforeEach
     public void setup() {
-       servicioRecorrido = Mockito.mock(ServicioRecorrido.class);
-       controladorRecorrido = new ControladorRecorrido(servicioRecorrido); // Inicializa el controlador
-       mockMvc = MockMvcBuilders.standaloneSetup(controladorRecorrido).build();
+        servicioRecorrido = Mockito.mock(ServicioRecorrido.class);
+        controladorRecorrido = new ControladorRecorrido(servicioRecorrido);
+        mockMvc = MockMvcBuilders.standaloneSetup(controladorRecorrido).build();
     }
 
     @Test
+
     public void queSePuedaMostrarFormulario() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/formulario-Recorrido"))
            .andExpect(status().isOk())
-           .andExpect(view().name("formularioRecorrido"))  // Asegúrate de usar el nuevo nombre
+           .andExpect(view().name("formularioRecorrido"))  
            .andExpect(model().attributeExists("Recorrido"));
     }
 
-     @Test
+    @Test
     public void queSePuedaValidarRecorrido() throws Exception {
-
         String paradasInput = "Parada1, Parada2, Parada3";
 
         mockMvc.perform(post("/validar-recorrido")
                 .param("paradaInput", paradasInput)
-                .flashAttr("Recorrido", new Recorrido()))
+                .flashAttr("recorrido", new Recorrido())) 
                 .andExpect(view().name("redirect:/gestion-recorrido"));
-
-
     }
-
-
-
-
 }
