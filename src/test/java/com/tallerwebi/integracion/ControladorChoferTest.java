@@ -1,3 +1,4 @@
+
 package com.tallerwebi.integracion;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -43,7 +44,7 @@ public class ControladorChoferTest {
 
     @Test
     public void queSePuedaMostrarFormularioRegistro() throws Exception {
-        mockMvc.perform(get("/registroChofer"))
+        mockMvc.perform(get("/registro-Chofer"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("registroChofer"))
                 .andExpect(model().attributeExists("Chofer"));

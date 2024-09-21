@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.hibernate.Session;
 
+import java.util.List;
+
 @Repository("repositorioChofer")
 
 public class RepositorioChofeImpl implements RepositorioChofer {
@@ -31,5 +33,12 @@ public class RepositorioChofeImpl implements RepositorioChofer {
     @Override
     public void guardar(Chofer chofer) {
           sessionFactory.getCurrentSession().save(chofer);
+    }
+
+    @Override
+    public List<Chofer> getChoferes() {
+         return sessionFactory.getCurrentSession()
+                             .createQuery("FROM Chofer ", Chofer.class)
+                             .getResultList();
     }
 }

@@ -44,12 +44,21 @@ public class ControladorRecorridoTest {
     }
 
     @Test
+
+    public void queSePuedaMostrarFormulario() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/formulario-Recorrido"))
+           .andExpect(status().isOk())
+           .andExpect(view().name("formularioRecorrido"))  
+           .andExpect(model().attributeExists("Recorrido"));
+    }
+
+    @Test
     public void queSePuedaValidarRecorrido() throws Exception {
         String paradasInput = "Parada1, Parada2, Parada3";
 
         mockMvc.perform(post("/validar-recorrido")
                 .param("paradaInput", paradasInput)
-                .flashAttr("recorrido", new Recorrido()))  // Cambiado a "recorrido"
+                .flashAttr("recorrido", new Recorrido())) 
                 .andExpect(view().name("redirect:/gestion-recorrido"));
     }
 }

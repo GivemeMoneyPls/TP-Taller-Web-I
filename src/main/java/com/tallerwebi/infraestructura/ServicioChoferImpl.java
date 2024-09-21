@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service("servicioChofer")
 @Transactional
@@ -27,5 +28,10 @@ public class ServicioChoferImpl implements ServicioChofer {
             throw new ChoferExistente("Chofer ya existe");
         }
         repositorioChofer.guardar(chofer);
+    }
+
+    @Override
+    public List<Chofer> listarChoferes() {
+        return repositorioChofer.getChoferes();
     }
 }

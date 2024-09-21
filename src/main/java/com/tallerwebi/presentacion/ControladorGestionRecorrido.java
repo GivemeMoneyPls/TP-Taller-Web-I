@@ -27,4 +27,7 @@ public class ControladorGestionRecorrido {
         model.addAttribute("recorridos", recorridos);
         return new ModelAndView("gestionRecorrido", model);
     }
+
+
+
 }
